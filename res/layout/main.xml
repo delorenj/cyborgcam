@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background = "#00000001"
+    android:orientation="vertical">
+    <epc.labs.cyborgcam.CamView android:id="@+id/cam_surface"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+    </epc.labs.cyborgcam.CamView>
+    <epc.labs.cyborgcam.T600View
+        android:id="@+id/overlay" android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    </epc.labs.cyborgcam.T600View>
+    <ImageView android:id="@+id/colorfilter"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_darker" />
+<!--    <epc.labs.cyborgcam.T800View
+        android:id="@+id/overlay" android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    </epc.labs.cyborgcam.T800View>-->
+</RelativeLayout>
