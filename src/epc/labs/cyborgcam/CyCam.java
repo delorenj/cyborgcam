@@ -19,7 +19,7 @@ public class CyCam extends Activity {
   private static String TAG = "CyborgCam";
   private CamView mCV;
   private ImageView mFilter;
-  private T600View mOverlay;
+  private T800View mOverlay;
   /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
@@ -27,10 +27,8 @@ public class CyCam extends Activity {
         super.onCreate(icicle);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-//        getWindow().setFormat(PixelFormat.TRANSLUCENT);
         mCV = (CamView)findViewById(R.id.cam_surface);
-        mOverlay = (T600View)this.findViewById(R.id.overlay);        
+        mOverlay = (T800View)this.findViewById(R.id.overlay);
         mFilter = (ImageView)this.findViewById(R.id.colorfilter);
-//        colorFilter.setAlpha(150);
     }
 }

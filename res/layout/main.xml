@@ -8,17 +8,17 @@
         android:layout_height="fill_parent"
         android:layout_weight="1">
     </epc.labs.cyborgcam.CamView>
-    <epc.labs.cyborgcam.T600View
-        android:id="@+id/overlay" android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-    </epc.labs.cyborgcam.T600View>
     <ImageView android:id="@+id/colorfilter"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="fitXY"
         android:src="@drawable/bg_darker" />
-<!--    <epc.labs.cyborgcam.T800View
+    <epc.labs.cyborgcam.T800View
         android:id="@+id/overlay" android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-    </epc.labs.cyborgcam.T800View>-->
+    </epc.labs.cyborgcam.T800View>
+<!--    <epc.labs.cyborgcam.T600View
+        android:id="@+id/overlay" android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    </epc.labs.cyborgcam.T600View>    -->
 </RelativeLayout>
