@@ -9,7 +9,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TextView;
 
 /**
  *
@@ -20,6 +24,8 @@ public class CyCam extends Activity {
   private CamView mCV;
   private ImageView mFilter;
   private T800View mOverlay;
+  private ModCriteria mCriteria;
+
   /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
@@ -28,7 +34,16 @@ public class CyCam extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
         mCV = (CamView)findViewById(R.id.cam_surface);
-        mOverlay = (T800View)this.findViewById(R.id.overlay);
         mFilter = (ImageView)this.findViewById(R.id.colorfilter);
+        ModCriteria mCriteria = (ModCriteria)this.findViewById(R.id.mod_criteria);
+        mCriteria.setText("Sheep and fuck balls");
+//        criteria.setText("This is ass");
+//        mOverlay = (T800View)this.findViewById(R.id.overlay);
+//        final Animation in = new AlphaAnimation(0.0f, 1.0f);
+//        in.setDuration(250);
+//        in.setFillAfter(true);
+//        in.setStartOffset(3000);
+//        mOverlay.clearAnimation();
+//        mOverlay.startAnimation(in);
     }
 }

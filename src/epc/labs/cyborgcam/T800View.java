@@ -8,6 +8,8 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 
 public class T800View extends View {
   public static String TAG = "CyborgCam";
