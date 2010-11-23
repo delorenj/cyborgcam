@@ -37,7 +37,8 @@ public class CyCam extends Activity {
         mCV = (CamView)findViewById(R.id.cam_surface);
         mFilter = (ImageView)this.findViewById(R.id.colorfilter);
         mCriteria = (TypewriterView)this.findViewById(R.id.mod_criteria);
-        mCriteria.setText("CRITERIA:");
+        mCriteria.addLine("CRITERIA:");
+        mCriteria.addLine("*******");
 
 //        criteria.setText("This is ass");
 //        mOverlay = (T800View)this.findViewById(R.id.overlay);
