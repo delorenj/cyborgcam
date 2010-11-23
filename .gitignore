@@ -9,4 +9,6 @@ tmp/**/*
 *.keystore
 build/**
 build/**/*
-
+bin/**
+bin/**/*
+R.java
