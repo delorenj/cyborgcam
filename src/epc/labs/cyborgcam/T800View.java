@@ -19,7 +19,7 @@ public class T800View extends View {
 
   public T800View(Context context, AttributeSet attrs) {
     super(context, attrs);
-    Log.e(TAG, "Instantiate T800View");
+    Log.i(TAG, "Instantiate T800View");
     mCursor = new Rect(0,0,5,8);
     mCursor.offsetTo(40, 40);    
     mModuleText = new Paint();

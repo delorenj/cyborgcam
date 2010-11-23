@@ -17,7 +17,7 @@ public class ModCriteria extends TableLayout {
     super(context, attrs);
     mContext = context;
     this.setShrinkAllColumns(true);
-    Log.e(TAG, "Instantiated Module: Criteria");
+    Log.i(TAG, "Instantiated Module: Criteria");
   }
 
   public void setText(String t) {
@@ -28,5 +28,10 @@ public class ModCriteria extends TableLayout {
       chars.add(tv);
       this.addView(tv);
     }
+  }
+  
+  @Override
+  protected void onLayout(boolean changed, int l, int t, int r, int b) {
+	  Log.i(TAG, "onLayout Called *********************");
   }
 }

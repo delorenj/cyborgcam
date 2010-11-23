@@ -29,7 +29,7 @@ public class CyCam extends Activity {
   /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
-        Log.e(TAG, "Instantiate CyCam");
+        Log.i(TAG, "Instantiate CyCam");
         super.onCreate(icicle);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);

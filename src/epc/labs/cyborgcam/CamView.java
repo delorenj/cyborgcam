@@ -19,7 +19,7 @@ class CamView extends SurfaceView implements SurfaceHolder.Callback {
     super(context);
     // Install a SurfaceHolder.Callback so we get notified when the
     // underlying surface is created and destroyed.
-    Log.e(TAG, "Instantiate CamView");
+    Log.i(TAG, "Instantiate CamView");
     mHolder = getHolder();
     mHolder.addCallback(this);
     mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -29,7 +29,7 @@ class CamView extends SurfaceView implements SurfaceHolder.Callback {
     super(context);
     // Install a SurfaceHolder.Callback so we get notified when the
     // underlying surface is created and destroyed.
-    Log.e(TAG, "Instantiate CamView");
+    Log.i(TAG, "Instantiate CamView");
     mHolder = getHolder();
     mHolder.addCallback(this);
     mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -39,7 +39,7 @@ class CamView extends SurfaceView implements SurfaceHolder.Callback {
     super(context);
     // Install a SurfaceHolder.Callback so we get notified when the
     // underlying surface is created and destroyed.
-    Log.e(TAG, "Instantiate CamView");
+    Log.i(TAG, "Instantiate CamView");
     mHolder = getHolder();
     mHolder.addCallback(this);
     mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -48,7 +48,7 @@ class CamView extends SurfaceView implements SurfaceHolder.Callback {
   public void surfaceCreated(SurfaceHolder holder) {
     // The Surface has been created, acquire the camera and tell it where
     // to draw.
-    Log.e(TAG, "surfaceCreated");
+    Log.i(TAG, "surfaceCreated");
     mCamera = Camera.open();
     try {
        mCamera.setPreviewDisplay(holder);
@@ -62,7 +62,7 @@ class CamView extends SurfaceView implements SurfaceHolder.Callback {
   public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
     // Now that the size is known, set up the camera parameters and begin
     // the preview.
-    Log.e(TAG, "surfaceChanged");
+    Log.i(TAG, "surfaceChanged");
     Camera.Parameters parameters = mCamera.getParameters();
     List<String> colorEffects = parameters.getSupportedColorEffects();
     for (String colorEffect : colorEffects) {
@@ -83,7 +83,7 @@ class CamView extends SurfaceView implements SurfaceHolder.Callback {
     // Surface will be destroyed when we return, so stop the preview.
     // Because the CameraDevice object is not a shared resource, it's very
     // important to release it when the activity is paused.
-    Log.e(TAG, "surfaceDestroyed");
+    Log.i(TAG, "surfaceDestroyed");
     mCamera.stopPreview();
     mCamera.release();
     mCamera = null;
@@ -92,7 +92,7 @@ class CamView extends SurfaceView implements SurfaceHolder.Callback {
   private Size getOptimalPreviewSize(List<Size> sizes, int w, int h) {
     final double ASPECT_TOLERANCE = 0.05;
     double targetRatio = (double) w / h;
-    Log.e(TAG, "getOptimalPreviewSize");
+    Log.i(TAG, "getOptimalPreviewSize");
     if (sizes == null) return null;
 
     Size optimalSize = null;

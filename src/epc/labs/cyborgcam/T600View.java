@@ -124,7 +124,7 @@ class T600View extends SurfaceView implements SurfaceHolder.Callback {
   
   public T600View(Context context, AttributeSet attrs) {
     super(context, attrs);
-    Log.e(TAG, "Instantiated Overlay: T600");
+    Log.i(TAG, "Instantiated Overlay: T600");
     // Install a SurfaceHolder.Callback so we get notified when the
     // underlying surface is created and destroyed.
     mHolder = getHolder();
@@ -164,18 +164,18 @@ class T600View extends SurfaceView implements SurfaceHolder.Callback {
   }
 
   public void surfaceCreated(SurfaceHolder holder) {
-    Log.e(TAG, "T600 Overlay: surfaceCreated");
+    Log.i(TAG, "T600 Overlay: surfaceCreated");
     thread.setRunning(true);
     thread.start();
   }
 
   public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-    Log.e(TAG, "T600 Overlay: surfaceChanged");
+    Log.i(TAG, "T600 Overlay: surfaceChanged");
     thread.setSurfaceSize(width, height);
   }
 
   public void surfaceDestroyed(SurfaceHolder holder) {
-    Log.e(TAG, "T600 Overlay: surfaceDestroyed");
+    Log.i(TAG, "T600 Overlay: surfaceDestroyed");
   }
 
 }
