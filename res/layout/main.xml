@@ -13,9 +13,20 @@
         android:layout_height="fill_parent"
         android:scaleType="fitXY"
         android:src="@drawable/bg_darker" />
-    <epc.labs.cyborgcam.ModCriteria android:id="@+id/mod_criteria"
+    <RelativeLayout android:id="@+id/modules"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />        
+        android:layout_height="fill_parent">
+    	<epc.labs.cyborgcam.TypewriterView 
+    		android:id="@+id/mod_criteria"
+  		   	android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentLeft="true" 
+    		android:layout_alignParentTop="true" />
+
+    </RelativeLayout>           
+<!--    <epc.labs.cyborgcam.ModCriteria android:id="@+id/mod_criteria"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="fill_parent" />        -->
 <!--    <epc.labs.cyborgcam.T800View
         android:id="@+id/overlay" android:layout_width="fill_parent"
         android:layout_height="fill_parent">
