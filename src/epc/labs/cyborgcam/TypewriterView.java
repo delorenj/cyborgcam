@@ -75,10 +75,27 @@ public class TypewriterView extends ViewGroup {
   @Override
   protected void onLayout(boolean changed, int l, int t, int r, int b) {
 	int numChars = this.getChildCount();
-	Log.i(TAG, "Number of Typewrite Chars: "+numChars);
-	for(int i=0; i<numChars; i++) {
-		TypewriterElement c = (TypewriterElement)this.getChildAt(i);
-		c.layout(CHAR_WIDTH*(i+1)+HPAD, c.getRow()*CHAR_HEIGHT+VPAD, CHAR_WIDTH*2*(i+1)+HPAD, c.getRow()*CHAR_HEIGHT*2+VPAD);
+	if(numChars == 0) return;
+	int currChar = 0;
+	Log.i(TAG, "Number of Typewrite Rows: "+ numRows);
+	for(int currRow=1; currRow<=numRows; currRow++) {
+	  Log.i(TAG, "Processing Row "+currRow+" of "+numRows);
+	  int vertical_displacement = currRow*CHAR_HEIGHT+VPAD;
+	  int horizontal_displacement = 1;
+	  boolean doneRow = false;
+	  while(!doneRow && (currChar < numChars)) {
+	    TypewriterElement c = (TypewriterElement)this.getChildAt(currChar);
+	    if(c.getRow() != currRow) {
+	      doneRow = true;
+	      continue;
+	    }
+	    c.layout(CHAR_WIDTH*horizontal_displacement+HPAD, 	//left 
+	    		 vertical_displacement, 					//top
+	    		 CHAR_WIDTH*2*horizontal_displacement+HPAD, //right
+	    		 vertical_displacement+CHAR_HEIGHT);		//bottom
+	    currChar++;
+	    horizontal_displacement++;
+	  }
 	}
   } 
 }
