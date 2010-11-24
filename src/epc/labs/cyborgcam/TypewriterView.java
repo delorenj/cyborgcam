@@ -3,6 +3,7 @@ package epc.labs.cyborgcam;
 import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LayoutAnimationController;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.TextView;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +43,9 @@ public class TypewriterView extends ViewGroup {
   public static final int VPAD = 0;
   protected int numRows = 0;
   protected LayoutAnimationController animController;
+  protected Animation.AnimationListener animListener;
+  protected MediaPlayer mp;
+
 
   public TypewriterView(Context context) {
 	    super(context);
@@ -80,11 +87,49 @@ public class TypewriterView extends ViewGroup {
 	if(!changed) return;
 	int numChars = this.getChildCount();
 	if(numChars == 0) return;
+	if(mp != null) {
+		if(mp.isPlaying()) mp.stop();
+		mp.release();
+	}
+	mp = MediaPlayer.create(mContext, R.raw.click);
+	try {
+		mp.prepare();
+	} catch (IllegalStateException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	final Animation alphaAnim = new AlphaAnimation(0.0f, 1.0f);
-	alphaAnim.setDuration(110);
+	alphaAnim.setDuration(100);
 	alphaAnim.setFillAfter(true);
-	//alphaAnim.setStartOffset(1000);
 	animController = new LayoutAnimationController(alphaAnim);
+	animListener = new Animation.AnimationListener() {
+		
+		@Override
+		public void onAnimationStart(Animation animation) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void onAnimationRepeat(Animation animation) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void onAnimationEnd(Animation animation) {
+			if(mp.isPlaying()){
+				mp.seekTo(0);
+			}
+			else {
+				mp.start();
+			}
+		}
+	};
+	alphaAnim.setAnimationListener(animListener);
 	int currChar = 0;
 	Log.i(TAG, "Number of Typewrite Rows: "+ numRows);
 	for(int currRow=1; currRow<=numRows; currRow++) {
@@ -106,6 +151,7 @@ public class TypewriterView extends ViewGroup {
 	    horizontal_displacement++;
 	  }
 	}
+
 	this.setLayoutAnimation(animController);
 	animController.start();
   } 
