@@ -36,9 +36,18 @@ public class CyCam extends Activity {
         setContentView(R.layout.main);
         mCV = (CamView)findViewById(R.id.cam_surface);
         mFilter = (ImageView)this.findViewById(R.id.colorfilter);
+
         mCriteria = (TypewriterView)this.findViewById(R.id.mod_criteria);
         mCriteria.addLine("CRITERIA:");
         mCriteria.addLine("*******");
+        mCriteria.addLine("350 VEHI 55242");
+        mCriteria.addLine("220 CODE 14434");
+        mCriteria.addLine("980 SIZE 90210");
+        mCriteria.addLine("221 HPWR 99111");
+        mCriteria.addLine("742 PRIO 11993");
+        mCriteria.addLine("311 ADDR FFE43");
+        mCriteria.addLine("985 RNGE 31001");
+        mCriteria.addLine("217 CPCE 01010");
 
 //        criteria.setText("This is ass");
 //        mOverlay = (T800View)this.findViewById(R.id.overlay);

@@ -7,6 +7,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LayoutAnimationController;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +37,8 @@ public class TypewriterView extends ViewGroup {
   public static final int CHAR_HEIGHT = 15;
   public static final int HPAD = 20;
   public static final int VPAD = 0;
-  protected Paint mTextPaint;
   protected int numRows = 0;
+  protected LayoutAnimationController animController;
 
   public TypewriterView(Context context) {
 	    super(context);
@@ -74,8 +77,14 @@ public class TypewriterView extends ViewGroup {
   
   @Override
   protected void onLayout(boolean changed, int l, int t, int r, int b) {
+	if(!changed) return;
 	int numChars = this.getChildCount();
 	if(numChars == 0) return;
+	final Animation alphaAnim = new AlphaAnimation(0.0f, 1.0f);
+	alphaAnim.setDuration(110);
+	alphaAnim.setFillAfter(true);
+	//alphaAnim.setStartOffset(1000);
+	animController = new LayoutAnimationController(alphaAnim);
 	int currChar = 0;
 	Log.i(TAG, "Number of Typewrite Rows: "+ numRows);
 	for(int currRow=1; currRow<=numRows; currRow++) {
@@ -97,5 +106,7 @@ public class TypewriterView extends ViewGroup {
 	    horizontal_displacement++;
 	  }
 	}
+	this.setLayoutAnimation(animController);
+	animController.start();
   } 
 }
